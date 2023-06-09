@@ -1,8 +1,17 @@
 import { Request, Response } from "express";
 import fs from "fs";
 import { setCORS } from "google-translate-api-browser";
+import * as deepl from "deepl-node";
+import dotenv from "dotenv";
 var subsrt = require("subsrt");
 import { Subtitle } from "../utils/types";
+
+dotenv.config();
+
+// for long videos use deepl api
+const authKey = `${process.env.DEEPL_AUTH_KEY}`;
+const translator = new deepl.Translator(authKey);
+
 const translate = setCORS("");
 
 type Props = {
@@ -27,6 +36,8 @@ export const subtitleHandler = async (req: Request, res: Response) => {
       const data: Props = transcript;
       const text = data?.videoId?.map((item) => item.text).join("\n");
       try {
+        // const getTranslate = await translator.translateText(text, null, 'fa')          <******** if you use Deepl api uncomment thease two lines and comment the next line
+        //  const result = getTranslate.text;
         const getTranslate = await translate(text, {
           to: "fa",
         });
