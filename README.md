@@ -16,10 +16,22 @@
 
 ### How to install ?
 
-- Clone This repo
-- Cd youtube-subtitle-generator
-- Change env.local to env
-- To install all modules `yarn`
-- To run developer server `yarn dev`
-- You can install pm2 globally before deploying. `npm i pm2 -g`
-- Then run `pm2 start /src/index.js`
+```sh
+
+git clone https://github.com/sabber-slt/youtube-subtitle-generator
+cd youtube-subtitle-generator
+
+Change env.local to env
+
+// To install all modules
+yarn 
+
+// To run developer server
+yarn dev
+
+// You can install pm2 globally before deploying.
+ npm i pm2 -g
+ pm2 start /src/index.js
+ 
+```
+
