@@ -26,7 +26,7 @@ In this repository, I have used the Google API due to the open source format and
 
 3. Get your telegram token from the BOTFATHER. [Telegram token](https://telegram.me/BotFather)
 
-4. Put your telegram token in `env.example` and rename it to `.env`
+4. Put your telegram token in `env.local` and rename it to `.env`
 
 5. Install all modules
 
