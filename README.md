@@ -1,37 +1,48 @@
-## ساخت زیرنویس برای ویدیوهای یوتیوب با لینک
+## Express.js rest api that generates subtitles, download video and audio seprately
 
-با توجه به اهمیت استفاده از محتوای یوتیوب برای یادگیری مطالب گوناگون و موجود نبودن زیرنویس فارسی برای بعضی از ویدیو ها یا کیفیت پایین این زیر نویس ها تصمیم به ساخت سرور شخصی برای ساخت زیرنویس با استفاده از کتابخانه ها و api های موجود گرفتم.
+Due to the importance of using YouTube content for learning different subjects and the lack of Persian subtitles for some videos or the poor quality of these subtitles, I have decided to create a personal server for subtitle creation using available libraries and APIs.
 
-با توجه به تجربه ترجمه کتاب با استفاده از کد نویسی و ضعیف بودن تکنولوژی ها برای ترجمه با کیفیت، در مدت دو هفته گذشته راه های بسیاری را امتحان کردم و به این نتیجه رسیدم بهترین ترجمه ای که میتوان از هوش مصنوعی گرفت استفاده همزمان از سرور google translate و chatgpt با یکدیگر است.
+The workflow is as follows: when the text is entered into the server, it is translated once using Google Translate, and when the result is ready, the Persian text is rewritten once more using ChatGPT and ParaMent.
 
-روند کار به این صورت است که وقتی متن وارد سرور می شود یک بار به وسیله google translate ترجمه می شود و وقتی جواب آماده شد، متن فارسی یک بار دیگر به وسیله chatgpt به کمک پرامت بازنویسی انجام میشود.
-
-### نحوه عملکرد
-
-در این ریپو به دلیل متن باز بودن و راحتی استفاده برنامه نویسان از زیرنویس یوتیوب از api شرکت گوگل استفاده کرده ام اما شما می توانید برای بالا بردن کیفیت ترجمه اقدام به خرید سرویس های معتبر و جاگذاری api key با گوگل کنید.
+In this repository, I have used the Google API due to the open source format and ease of use for developers for YouTube subtitle. However, you can improve the translation quality by purchasing reputable services and replacing the API key with Google.
 
 <p align="center">
     <img src="./demo.png" width="900"/>
 </p>
 
-### How to install ?
+### Api Endpoints
+
+- /subtitles => generate persian subtitle
+- /video720 => download video 720p
+- /video1080 => download video 1080
+- /audio => download audio separately
+- /subtitles/:id => download subtitle
+
+## 🔮 Usage
+
+1. Make sure you have installed `node` already.
+
+2. Simply `git clone` or download this repo, `cd` into the project folder.
+
+3. Get your telegram token from the BOTFATHER. [Telegram token](https://telegram.me/BotFather)
+
+4. Put your telegram token in `env.example` and rename it to `.env`
+
+5. Install all modules
 
 ```sh
-
-git clone https://github.com/sabber-slt/youtube-subtitle-generator
-cd youtube-subtitle-generator
-
-Change env.local to env
-
-// To install all modules
-yarn 
-
-// To run developer server
-yarn dev
-
-// You can install pm2 globally before deploying.
- npm i pm2 -g
- pm2 start /src/index.js
- 
+yarn
 ```
 
+6. run developer server
+
+```sh
+yarn dev
+```
+
+## 💌 Resources
+
+- [Telegram token](https://telegram.me/BotFather).
+- [Deepl](https://www.npmjs.com/package/deepl-node).
+- [Youtube dl](https://www.npmjs.com/package/youtube-dl-exec).
+- [Express.js](https://github.com/expressjs/express).

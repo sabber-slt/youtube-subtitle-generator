@@ -17,6 +17,7 @@
     "helmet": "^7.0.0",
     "subsrt": "^1.1.1",
     "translate": "^2.0.2",
+    "youtube-dl-exec": "^2.4.5",
     "zod": "^3.17.9",
     "zod-to-json-schema": "^3.17.0"
   },
